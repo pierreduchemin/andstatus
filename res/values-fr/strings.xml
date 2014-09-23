@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
+	Copyright (C) 2014 Pierre DUCHEMIN
 	Copyright (C) 2012 Kevin CORNILLEAU
 	
 	Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +19,8 @@
 	<string name="app_name">AndStatus</string>
 
     <!-- Menu item -->
-    <string name="account_settings_action">AndStatus paramétrages de compte</string>
+    <string name="account_settings_action">Paramétrages de compte AndStatus</string>
+    <string name="account_settings_activity_title">Comptes</string>
     <!-- On Settings screen, summary line when called via AccountManager [CHAR LIMIT=50] -->
     <string name="account_settings_summary">Fréquence de synchronisation, notifications, etc.</string>
 
@@ -26,11 +28,8 @@
     <string name="settings_action">Paramétrages</string>
     <!-- Settings activity title [CHAR LIMIT=40]-->
     <string name="settings_activity_title">Paramétrages</string>
-    	
-    <string name="timeline_title_direct_messages">Messages privés</string>
-	<string name="timeline_title_favorites">Favoris</string>
-	<string name="timeline_title_mentions">Mentions</string>
-	<string name="timeline_title_home">Principale</string>
+	
+    <string name="action_menu_overflow_description">Plus…</string>
 
     <string name="appwidget_configure_instructions">Personnaliser le message du widget AndStatus affiché s\'il n\'y a pas rien de nouveau :</string>
     <string name="appwidget_nothingnew_default">Rien de nouveau depuis :</string>
@@ -41,14 +40,27 @@
 
 	<string name="authentication_never">Pas de dernière authentification</string>
 	<string name="authentication_successful">Authentification réussie !</string>
-	<string name="button_send">Envoyer</string>
+    <string name="button_add">Ajouter</string>
+	<string name="button_add_origin">Ajouter un nouveau système</string>
+    <string name="button_backup">Sauvegarder</string>
+    <string name="button_cancel">Annuler</string>
+    <string name="button_change_folder">Changer de dossier</string>
+    <string name="button_select_backup_file">Sélectionner un fichier de sauvegarde</string>
     <string name="button_create_message">Poster</string>
     <string name="button_create_message_twitter">Tweeter</string>
+    <string name="button_delete">Supprimer</string>
+    <string name="button_discard">Annuler</string>
+    <string name="button_hide">Cacher</string>
+    <string name="button_overflow">Dépassement</string>
+    <string name="button_restore">Restaurer</string>
+    <string name="button_save">Sauvegarder</string>
+	<string name="button_send">Envoyer</string>
     <string name="cannot_send_empty_message">Envoi d\'un message vide impossible.</string>
 	<string name="category_title_preference_appearance">Apparence</string>
 	<string name="category_title_preference_credentials">Identifiants</string>
 	<string name="category_title_preference_information">Information</string>
 	<string name="category_title_preference_notifications">Notifications</string>
+	<string name="category_title_preference_origin">Système de microbloggage</string>
 	<string name="category_title_preference_settings">Réglages</string>
     <string name="combined_timeline_on">combinée</string>
     <string name="combined_timeline_off_account">pour</string>
@@ -61,6 +73,7 @@
 	<string name="dialog_summary_executing_command">Merci de patienter pendant que l\'opération est exécutée sur le serveur.</string>
 	<string name="dialog_summary_external_storage">Un support externe a été détecté. Souhaitez-vous qu\'AndStatus l\'utilise pour enregistrer les informations ? Les anciennes données peuvent être supprimées, mais resteront sur la mémoire interne.</string>
 	<string name="dialog_summary_external_storage_missing">Support externe non présent ou démonté. Souhaitez-vous utiliser la mémoire interne ? Toute donnée enregistrée sur le support externe restera disponible.</string>
+	<string name="dialog_summary_registering_client">Veuillez patienter pendant que AndStatus s\'enregistre en tant qu\'application cliente</string>
 	<string name="dialog_summary_sending_message">Merci de patienter pendant l\'envoi du message.</string>
 	<string name="dialog_summary_service_unavailable">Twitter est actuellement indisponible. Merci de réessayer ultérieurement.</string>
 	<string name="dialog_summary_timeline_loading">Merci de patientier pendant le rafraîchissement de la timeline. Cela pourra prendre plusieurs minutes selon votre connexion.</string>
@@ -72,13 +85,17 @@
 	<string name="dialog_title_executing_command">Exécution de l\'opération…</string>
 	<string name="dialog_title_external_storage">Support externe disponible</string>
 	<string name="dialog_title_external_storage_missing">Support externe manquant</string>
+   	<string name="dialog_title_preference_connection_timeout">Expiration de la connexion en secondes</string>
 	<string name="dialog_title_preference_frequency">Fréquence de rafraîchissement</string>
 	<string name="dialog_title_preference_history_size">Taille de l\'historique</string>
 	<string name="dialog_title_preference_history_time">Durée de l\'historique</string>
     <string name="dialog_title_preference_min_log_level">Niveau de journalisation</string>
     <string name="dialog_title_preference_password">Mot de passe</string>
 	<string name="dialog_title_preference_theme_color">Choisir un thème</string>
+    <string name="dialog_title_preference_theme_size">Sélectionnez la taille</string>
 	<string name="dialog_title_preference_username">Identifiant</string>
+	<string name="dialog_title_preference_username_pumpio">Identifiant Webfinger</string>
+	<string name="dialog_title_registering_client">Enregistrement de AndStatus</string>
     <string name="dialog_title_select_timeline">Choisir une timeline</string>
 	<string name="dialog_title_sending_message">Envoi du message…</string>
 	<string name="dialog_title_service_unavailable">Service non disponible</string>
@@ -90,9 +107,27 @@
 	<string name="error_credentials_of_other_user">Ce sont les identifiants d\'un autre utilisateur</string>
 	<string name="favorite_created">Marqué comme favori.</string>
 	<string name="favorite_destroyed">Supprimé des favoris.</string>
-    <string name="header_accounts">Gestion des comptes</string>    
-	<string name="http_dateformat">EEE, dd MMM yyyy HH:mm:ss zzz</string>
+    <string name="header_accounts">Gestion des comptes</string>
+	<string name="header_add_new_account">Ajouter un nouveau compte</string>    
+    <string name="header_manage_existing_accounts">Gérer les comptes existants</string>    
+    <string name="http_dateformat">EEE, dd MMM yyyy HH:mm:ss zzz</string>
     <string name="id_of_this_message_was_not_specified">Id du message non spécifié</string>
+	<string name="label_accountselector">Sélectionner un compte</string>
+    <string name="label_allow_html_content">Autoriser les contenus HTML</string>
+    <string name="label_backup">Sauvegarder les données de l\'application sur la carte SD</string>
+    <string name="label_backup_file">Fichier de sauvegarde</string>
+    <string name="label_backup_folder">Dossier de sauvegarde</string>
+    <string name="label_conversation">Conversation</string>
+    <string name="label_host">Hôte</string>
+    <string name="label_manage_origin_systems">Gérer les systèmes de microblog</string>
+    <string name="label_origin_list">Systèmes de microblog</string>
+    <string name="label_origin_name">Nom du système de microblog (unique et inchangeable)</string>
+    <string name="label_origin_system">Système de microblog</string>
+    <string name="label_origin_type">Type du système de microblog</string>
+    <string name="label_restore">Restaurer les données de l\'application depuis une sauvegarde</string>
+    <string name="label_upgrading">Mise à jour en cours. Veuillez patienter.</string>
+    <string name="loading">Chargement…</string>
+	<string name="http_dateformat">EEE, dd MMM yyyy HH:mm:ss zzz</string>
 	<string name="label_accountselector">Choisir un compte</string>
     <string name="label_conversation">Conversation</string>
     <string name="label_origin_system">Système de microblogage</string>
@@ -210,6 +245,12 @@
 	<string name="summary_preference_vibration_off">Vibration désactivée</string>
 	<string name="summary_preference_vibration_on">Vibration activée</string>
 	<string name="timeline_reloaded">La timeline a été rafraîchie.</string>
+    	
+    <string name="timeline_title_direct_messages">Messages privés</string>
+	<string name="timeline_title_favorites">Favoris</string>
+	<string name="timeline_title_mentions">Mentions</string>
+	<string name="timeline_title_home">Principale</string>
+
 	<string name="title_preference_about_application">À propos d\'AndStatus</string>
     <string name="title_preference_add_account">Ajouter un compte</string>
     <string name="title_preference_appearance">Apparence</string>
